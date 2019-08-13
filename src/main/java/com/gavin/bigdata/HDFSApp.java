@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.URI;
 
 public class HDFSApp {
-    private static final String HDFS_URI = "hdfs://hadoop001:8020";
+    private static final String HDFS_URI = "hdfs://192.168.1.121:8020";
     Configuration configuration = null;
     FileSystem fileSystem = null;
 
@@ -55,7 +55,7 @@ public class HDFSApp {
      */
     @Test
     public void create() throws Exception {
-        FSDataOutputStream inputStream = fileSystem.create(new Path("/h.txt"));
+        FSDataOutputStream inputStream = fileSystem.create(new Path("/hello.txt"));
         inputStream.writeUTF("hello world!");
         inputStream.flush();
         inputStream.close();
@@ -84,7 +84,7 @@ public class HDFSApp {
      */
     @Test
     public void copyFromLocalFile() throws Exception {
-        fileSystem.copyFromLocalFile(new Path("E:/hello.txt"), new Path("/wordcount/input"));
+        fileSystem.copyFromLocalFile(new Path("E:/hello.txt"), new Path("/input"));
     }
 
     /**
